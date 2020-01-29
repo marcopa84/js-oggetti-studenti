@@ -1,0 +1,28 @@
+
+.clearfix:after{
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.chat_messages{
+  border: 1px solid black;
+}
+
+.sent{
+  float: right;
+  clear: both;
+  border: 1px solid red;
+  padding: 10px;
+  margin: 10px;
+}
+.received{
+  float: left;
+  clear: both;
+  border: 1px solid lime;
+  padding: 10px;
+  margin: 10px;
+}
+input{
+  margin: 30px;
+}

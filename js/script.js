@@ -8,8 +8,21 @@ $(document).ready( function () {
   for (var key in studente) {
     console.log(studente[key]);
     $('#1mil').append(studente[key] + ' ');
-  }
+    // /primo metodo
 
+  }
+  // secondo metodo
+  var source = document.getElementById("template").innerHTML;
+  var template = Handlebars.compile(source);
+  var context = {
+    'nome' : studente.nome,
+    'cognome' : studente.cognome,
+    'eta' : studente.eta
+  };
+  var html = template(context);
+  $('#1mil_handlebarsjs').append(html);
+
+// ----------------------------------------------------------------------------
   var studenti = [
     {
       'nome' : 'marco',
@@ -29,10 +42,21 @@ $(document).ready( function () {
   ]
   console.log('secondo milestone-->');
   for (var i = 0; i < studenti.length; i++) {
-
     console.log(studenti[i].nome + ' ' + studenti[i].cognome);
     $('#2mil').append(studenti[i].nome + ' ' + studenti[i].cognome + '<br>');
+    // secondo metodo
+    var source = document.getElementById("template").innerHTML;
+    var template = Handlebars.compile(source);
+    var context = {
+      'nome' : studenti[i].nome,
+      'cognome' : studenti[i].cognome,
+      'eta' : studenti[i].eta
+    }
+    var html = template(context);
+    $('#2mil_handlebarsjs').append(html);
   }
+
+  // -------------------------------------------------------------------------
   $('button').click(function () {
     var nuovoStudente = {
       'nome' : prompt('inserisci il nome:'),
@@ -42,6 +66,16 @@ $(document).ready( function () {
     studenti.push(nuovoStudente);
     for (var i = 0; i < studenti.length; i++) {
       $('#3mil').append(studenti[i].nome + ' ' + studenti[i].cognome + ' ' + studenti[i].eta + '<br>');
+      // secondo metodo
+      var source = document.getElementById("template").innerHTML;
+      var template = Handlebars.compile(source);
+      var context = {
+        'nome' : studenti[i].nome,
+        'cognome' : studenti[i].cognome,
+        'eta' : studenti[i].eta
+      }
+      var html = template(context);
+      $('#3mil_handlebarsjs').append(html);
     }
   });
 
